@@ -413,20 +413,21 @@ public class GravITyIDE extends JFrame {
                        "        phase_shift: 0\n" +
                        "    }\n" +
                        "}";
-            case "Circular Motion":
-                return "simulation {\n" +
-                       "    circular_motion {\n" +
-                       "        radius: 100\n" +
-                       "        angular_speed: 0.05\n" +
-                       "        ball {\n" +
-                       "            color {\n" +
-                       "                red_value: 255\n" +
-                       "                green_value: 100\n" +
-                       "                blue_value: 0\n" +
-                       "            }\n" +
-                       "        }\n" +
-                       "    }\n" +
-                       "}";
+case "Circular Motion":
+    return "simulation {\n" +
+           "    circular_motion {\n" +
+           "        radius: 67\n" +
+           "        angular_speed: 0.2\n" +
+           "        ball {\n" +
+           "            radius: 8\n" +
+           "            color {\n" +
+           "                red_value: 22\n" +
+           "                green_value: 255\n" +
+           "                blue_value: 45\n" +
+           "            }\n" +
+           "        }\n" +
+           "    }\n" +
+           "}";
 case "Attraction Force":
     return "simulation {\n" +
            "    attraction_force {\n" +
