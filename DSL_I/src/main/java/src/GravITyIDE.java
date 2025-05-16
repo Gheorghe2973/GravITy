@@ -392,7 +392,6 @@ public class GravITyIDE extends JFrame {
             case "Uniform Motion":
                 return "simulation {\n" +
                        "    uniform_motion {\n" +
-                       "        initial_speed: 2.5\n" +
                        "        mover {\n" +
                        "            radius: 30\n" +
                        "            color {\n" +
@@ -401,6 +400,7 @@ public class GravITyIDE extends JFrame {
                        "                blue_value: 0\n" +
                        "            }\n" +
                        "        }\n" +
+                       "        initial_speed: 2.5\n" +
                        "    }\n" +
                        "}";
             case "Wave":
@@ -427,33 +427,45 @@ public class GravITyIDE extends JFrame {
                        "        }\n" +
                        "    }\n" +
                        "}";
-            case "Attraction Force":
-                return "simulation {\n" +
-                       "    attraction_force {\n" +
-                       "        mover1 {\n" +
-                       "            radius: 30\n" +
-                       "            mass: 50\n" +
-                       "            position: [200, 200]\n" +
-                       "            velocity: [0, 0]\n" +
-                       "            color {\n" +
-                       "                red_value: 0\n" +
-                       "                green_value: 100\n" +
-                       "                blue_value: 255\n" +
-                       "            }\n" +
-                       "        }\n" +
-                       "        mover2 {\n" +
-                       "            radius: 20\n" +
-                       "            mass: 25\n" +
-                       "            position: [400, 300]\n" +
-                       "            velocity: [1, -1]\n" +
-                       "            color {\n" +
-                       "                red_value: 255\n" +
-                       "                green_value: 100\n" +
-                       "                blue_value: 0\n" +
-                       "            }\n" +
-                       "        }\n" +
-                       "    }\n" +
-                       "}";
+case "Attraction Force":
+    return "simulation {\n" +
+           "    attraction_force {\n" +
+           "        mover1 {\n" +
+           "            radius: 10\n" +
+           "            mass: 3.5\n" +
+           "            velocity {\n" +
+           "                x_velocity: 1\n" +
+           "                y_velocity: 1\n" +
+           "            }\n" +
+           "            position {\n" +
+           "                x_position: 100\n" +
+           "                y_position: 150\n" +
+           "            }\n" +
+           "            color {\n" +
+           "                red_value: 255\n" +
+           "                green_value: 0\n" +
+           "                blue_value: 0\n" +
+           "            }\n" +
+           "        }\n" +
+           "        mover2 {\n" +
+           "            radius: 15\n" +
+           "            mass: 4.0\n" +
+           "            velocity {\n" +
+           "                x_velocity: 1\n" +
+           "                y_velocity: 5\n" +
+           "            }\n" +
+           "            position {\n" +
+           "                x_position: 300\n" +
+           "                y_position: 200\n" +
+           "            }\n" +
+           "            color {\n" +
+           "                red_value: 255\n" +
+           "                green_value: 0\n" +
+           "                blue_value: 0\n" +
+           "            }\n" +
+           "        }\n" +
+           "    }\n" +
+           "}";
             default:
                 return "";
         }
@@ -504,22 +516,22 @@ public class GravITyIDE extends JFrame {
                     return;
                 }
                 
-                if (code.contains("drag_force")) {
+                if (code.contains("drag_force")) {                
                     outputArea.append("DEBUG: Detected drag_force in code\n");
                     handleDragForceSimulation(tree, code);
-                } else if (code.contains("pendulum")) {
+                } else if (code.contains("pendulum")) {           
                     handlePendulumSimulation(tree, code);
                 } else if (code.contains("accelerated_motion")) {
                     handleAcceleratedMotionSimulation(tree, code);
-                } else if (code.contains("wave")) {
+                } else if (code.contains("wave")) {   
                     handleWaveSimulation(tree, code);
                 } else if (code.contains("uniform_motion")) {
                     handleUniformMotionSimulation(tree, code);
-                } else if (code.contains("circular_motion")) {
+                } else if (code.contains("circular_motion")) {     
                     handleCircularMotionSimulation(tree, code);
-                } else if (code.contains("gravity")) {
-                    handleGravitySimulation(tree, code);
-                } else if (code.contains("attraction_force")) {
+                } else if (code.contains("gravity")) {            
+                    handleGravitySimulation(tree, code); 
+                } else if (code.contains("attraction_force")) {    
                     handleAttractionForceSimulation(tree, code);
                 } else {
                     outputArea.append("ERROR: Unsupported simulation type.\n");
